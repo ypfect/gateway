@@ -1,0 +1,21 @@
+server:
+  port: 9898
+
+zuul:
+  routes:
+    auth-center:
+      path: /login/**
+      url: http://127.0.0.1:8081/
+      sensitiveHeaders: Cookie,Set-Cookie
+      stripPrefix: false
+    backend-service:
+      path: /backend/**
+      url: http://127.0.0.1:8082/
+#,Authorization
+jwt:
+  url: /login
+  header: Authorization
+  prefix: Bearer
+  expiration: 120000
+  secret: explore
+
