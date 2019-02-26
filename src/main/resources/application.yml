@@ -11,6 +11,8 @@ zuul:
     backend-service:
       path: /backend/**
       url: http://127.0.0.1:8082/
+  host:
+    connect-timeout-millis: 2000
 #,Authorization
 jwt:
   url: /login
@@ -18,4 +20,5 @@ jwt:
   prefix: Bearer
   expiration: 120000
   secret: explore
+
 
